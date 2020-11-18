@@ -83,11 +83,11 @@ use App\Models\Article;
                 <form method="post" id="insert_form">
                     <div class="form-group">
                         <label>Titulok</label>
-                        <input name="title" id="title" type="text" class="form-control">
+                        <input name="title" required id="title" type="text" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Text</label>
-                        <textarea name="text" id="text" class="form-control"></textarea>
+                        <textarea name="text" required id="text" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -121,6 +121,8 @@ use App\Models\Article;
                 alert("Text is required");
             }
 
+
+
             else
             {
                 $.ajax({
@@ -138,6 +140,8 @@ use App\Models\Article;
                 });
             }
         });
+
+
 
 
 </script>

@@ -4,7 +4,7 @@
 $article = $data['article'];
 ?>
 
-<div class="container">
+<div class=" paper">
     <div class="row">
         <div class="col">
             <form method="post">
@@ -20,7 +20,7 @@ $article = $data['article'];
                     <label>Meno</label>
                     <textarea name="meno" class="form-control"><?=$article->getName()?></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
             </form>
 
         </div>

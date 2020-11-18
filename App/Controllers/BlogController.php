@@ -21,6 +21,7 @@ class BlogController extends AControllerBase
     {
         if  (isset($_POST['title'])) {
             $article = new Article($_POST['title'], $_POST['text'], $_POST['meno']);
+
             $article->save();
             header("Location: ?c=blog");
         }
