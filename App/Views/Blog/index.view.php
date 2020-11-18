@@ -58,12 +58,101 @@ use App\Models\Article;
 </div>
 
 
-<!-- Button trigger modal -->
+<!-- Button trigger modal
 <button type="button" class="btn btn-primary recenzia" data-toggle="modal" data-target="#exampleModal" >
     Pridaj recenziu
 </button>
+-->
 
-<!-- Modal -->
+
+
+<!-- test add -->
+
+
+<button type="button" name="age" id="age" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning recenzia">Pridaj recenziu</button>
+
+
+<div id="add_data_Modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">Pridaj recenziu</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="insert_form">
+                    <div class="form-group">
+                        <label>Titulok</label>
+                        <input name="title" id="title" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Text</label>
+                        <textarea name="text" id="text" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Meno</label>
+                        <!--<textarea name="meno" id="meno" class="form-control"></textarea> -->
+                        <input name="meno" id="meno" type="text" class="form-control">
+                    </div>
+                    <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function(){
+        $('#insert_form').on("submit", function(event){
+            event.preventDefault();
+             if($('#title').val() == '')
+            {
+                alert("Title is required");
+            }
+            else if($('#text').val() == '')
+            {
+                alert("Text is required");
+            }
+
+            else
+            {
+                $.ajax({
+                    url:"insert.php",
+                    method:"POST",
+                    data:$('#insert_form').serialize(),
+                    beforeSend:function(){
+                        $('#insert').val("Inserting");
+                    },
+                    success:function(data){
+                        $('#insert_form')[0].reset();
+                        $('#add_data_Modal').modal('hide');
+                        $('#articles').html(data);
+                    }
+                });
+            }
+        });
+
+
+</script>
+
+
+<!-- test add end-->
+
+
+
+
+
+
+
+
+<!-- Modal
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -125,7 +214,7 @@ use App\Models\Article;
     </div>
 </div>
 
-
+-->
 
 <?php /** @var Array $data */ ?>
 
@@ -143,7 +232,7 @@ use App\Models\Article;
 
                         <h5 class="card-title"><?= $article->getTitle() ?></h5>
                         <p class="card-text"><?= $article->getText() ?></p>
-                        <p class="card-name"><?= $article->getName() ?></p>
+                        <p class="card-name">Napisal: <?= $article->getName() ?></p>
 
                         <a href="?c=blog&a=edit&id=<?= $article->getId() ?>" class="btn btn-primary btn-sm" >edit</a>
                         <a href="?c=blog&a=delete&id=<?= $article->getId() ?>" class="btn btn-danger btn-sm" >delete</a>

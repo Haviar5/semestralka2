@@ -9,19 +9,19 @@ class Article extends Model
     protected $id;
     protected $title;
     protected $text;
-    protected $name;
+    protected $meno;
 
     /**
      * Article constructor.
      * @param $title
      * @param $text
-     * @param $name
+     * @param $meno
      */
-    public function __construct($title = "", $text = "", $name = "uzivatel")
+    public function __construct($title = "", $text = "", $meno = "uzivatel")
     {
         $this->title = $title;
         $this->text = $text;
-        $this->name = $name;
+        $this->meno = $meno;
     }
 
     /**
@@ -35,15 +35,15 @@ class Article extends Model
 
 
 
-    public function setName($name)
+    public function setName($meno)
     {
-        return $this->name = $name;
+        return $this->meno = $meno;
     }
 
 
     public function getname()
     {
-        return $this->name;
+        return $this->meno;
     }
 
     /**
@@ -72,7 +72,7 @@ class Article extends Model
 
     static public function setDbColumns()
     {
-        return ['id','text','title', 'name'];
+        return ['id','text','title', 'meno'];
     }
 
     static public function setTableName()

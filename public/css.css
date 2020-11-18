@@ -48,7 +48,8 @@ body {
     border: 3px solid green;
     padding: 10px;
     text-align: left;
-    overflow: auto;
+    overflow: hidden;
+    font-weight: bold;
 
 }
 

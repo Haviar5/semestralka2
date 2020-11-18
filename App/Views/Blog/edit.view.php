@@ -18,7 +18,7 @@ $article = $data['article'];
                 </div>
                 <div class="form-group">
                     <label>Meno</label>
-                    <textarea name="name" class="form-control"></textarea>
+                    <textarea name="meno" class="form-control"><?=$article->getName()?></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
