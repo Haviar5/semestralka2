@@ -10,15 +10,20 @@ $article = $data['article'];
             <form method="post">
                 <div class="form-group">
                     <label>Titulok</label>
-                    <input name="title" type="text" class="form-control" value="<?=$article->getTitle()?>">
+                    <input name="title" required type="text" class="form-control" value="<?=$article->getTitle()?>">
                 </div>
                 <div class="form-group">
                     <label>Text</label>
-                    <textarea name="text" class="form-control"><?=$article->getText()?></textarea>
+                    <textarea name="text" required class="form-control"><?=$article->getText()?></textarea>
                 </div>
                 <div class="form-group">
                     <label>Meno</label>
-                    <textarea name="meno" class="form-control"><?=$article->getName()?></textarea>
+                    <textarea name="meno" required class="form-control"><?=$article->getName()?></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input name="email"  required type="email" class="form-control" value="<?=$article->getMail()?>">
                 </div>
                 <button type="submit" class="btn btn-primary">Edit</button>
             </form>

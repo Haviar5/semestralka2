@@ -17,18 +17,7 @@ class BlogController extends AControllerBase
         ];
     }
 
-    public function add()
-    {
-        if  (isset($_POST['title'])) {
-            $article = new Article($_POST['title'], $_POST['text'], $_POST['meno']);
 
-            $article->save();
-            header("Location: ?c=blog");
-        }
-
-        return[];
-
-    }
 
     public function edit() {
         $id = $_GET['id'];
@@ -39,6 +28,7 @@ class BlogController extends AControllerBase
             $article->setText($_POST['text']);
             $article->setTitle($_POST['title']);
             $article->setName($_POST['meno']);
+            $article->setMail($_POST['email']);
             $article->save();
             header("Location: ?c=blog");
         }
@@ -48,7 +38,18 @@ class BlogController extends AControllerBase
         ];
     }
 
+    public function add()
+    {
+        if  (isset($_POST['title'])) {
+            $article = new Article($_POST['title'], $_POST['text'], $_POST['meno'], $_POST['email']);
 
+            $article->save();
+            header("Location: ?c=blog");
+        }
+
+        return[];
+
+    }
 
     public function delete(){
         $id = $_GET['id'];

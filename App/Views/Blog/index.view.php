@@ -4,36 +4,8 @@ use App\Models\Article;
 
 ?>
 
-<!--
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h1>Clanky</h1>
-            <a href="?c=blog&a=add" class ="btn btn-primary">Pridaj clanok</a>
-            <?php
-            /** @var \App\Models\Article $article */
-            foreach ($data['articles'] as $article) {
-                ?>
-
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $article->getTitle() ?></h5>
-                        <a href="?c=blog&a=edit&id=<?= $article->getId() ?>" class="btn btn-primary btn-sm" >edit</a>
-                        <a href="?c=blog&a=delete&id=<?= $article->getId() ?>" class="btn btn-danger btn-sm" >delete</a>
-                        <p class="card-text"><?= $article->getText() ?></p>
-                    </div>
-                </div>
-
-                <?php
-            }
-            ?>
-        </div>
-    </div>
-</div>
 
 <?php ?>
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,6 +21,9 @@ use App\Models\Article;
     <title>Contact</title>
 </head>
 <body>
+
+
+
 <div class="topnav">
     <img src="http://localhost/semestralka/pictures/navIMG.jpg" width="50" height="50" class = " navImg" alt="?">
     <a href="?c=home&a=index">Home</a>
@@ -57,7 +32,32 @@ use App\Models\Article;
     <a href="?c=home&a=personnel">Personnel</a>
 </div>
 
-
+<!-- pozicane -->
+<?php
+if (isset($_POST['title']) && isset($_POST['text']) && isset($_POST['meno']) && isset($_POST['email'])) {
+    if ($_POST['title'] == '') { ?>
+        <div class="alert alert-warning" role="alert">
+            Prosím zadajte title.
+        </div>
+    <?php } else if ($_POST['text'] == '') { ?>
+        <div class="alert alert-warning" role="alert">
+            Prosím zadajte text.
+        </div>
+    <?php } else if ($_POST['meno'] == '') { ?>
+        <div class="alert alert-warning" role="alert">
+            Prosím zadajte meno.
+        </div>
+    <?php } else if ($_POST['email'] == '') { ?>
+        <div class="alert alert-warning" role="alert">
+            Prosím zadajte email.
+        </div>
+    <?php } else {
+        $article = new Article($_POST['title'], $_POST['text'], $_POST['meno'], $_POST['email']);
+        $article->save();
+        header("Location: ?c=blog");
+    }
+}
+?>
 <!-- Button trigger modal
 <button type="button" class="btn btn-primary recenzia" data-toggle="modal" data-target="#exampleModal" >
     Pridaj recenziu
@@ -93,7 +93,14 @@ use App\Models\Article;
                     <div class="form-group">
                         <label>Meno</label>
                         <!--<textarea name="meno" id="meno" class="form-control"></textarea> -->
-                        <input name="meno" id="meno" type="text" class="form-control">
+                        <input name="meno" required id="meno" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <!--<textarea name="meno" id="meno" class="form-control"></textarea> -->
+                        <input name="email" required id="email" type="email" class="form-control">
+
                     </div>
                     <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
 
@@ -108,117 +115,10 @@ use App\Models\Article;
 
 
 
-<script>
-    $(document).ready(function(){
-        $('#insert_form').on("submit", function(event){
-            event.preventDefault();
-             if($('#title').val() == '')
-            {
-                alert("Title is required");
-            }
-            else if($('#text').val() == '')
-            {
-                alert("Text is required");
-            }
-
-
-
-            else
-            {
-                $.ajax({
-                    url:"insert.php",
-                    method:"POST",
-                    data:$('#insert_form').serialize(),
-                    beforeSend:function(){
-                        $('#insert').val("Inserting");
-                    },
-                    success:function(data){
-                        $('#insert_form')[0].reset();
-                        $('#add_data_Modal').modal('hide');
-                        $('#articles').html(data);
-                    }
-                });
-            }
-        });
 
 
 
 
-</script>
-
-
-<!-- test add end-->
-
-
-
-
-
-
-
-
-<!-- Modal
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-                <form method="get" action="index.view.php">
-                    <div class="form-group">
-                        <label>Titulok</label>
-                        <input name="title" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Text</label>
-                        <textarea name="text" class="form-control"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Meno</label>
-                        <textarea name="name" class="form-control"></textarea>
-                    </div>
-
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <b> <label class="form-check-label" for="exampleCheck1">Im not a robot</label></b>
-                    </div>
-
-                    <?php
-                    function add()
-                    {
-                        if  (isset($_POST['title'])) {
-                            $article = new Article($_POST['title'], $_POST['text']);
-                            $article->save();
-                            header("Location: ?c=blog");
-                        }
-
-
-
-                    }
-
-                    ?>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a href="<?php add(); ?>" class ="btn btn-primary" >Submit </a>
-
-                    </div>
-
-
-                </form>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
--->
 
 <?php /** @var Array $data */ ?>
 
@@ -236,7 +136,7 @@ use App\Models\Article;
 
                         <h5 class="card-title"><?= $article->getTitle() ?></h5>
                         <p class="card-text"><?= $article->getText() ?></p>
-                        <p class="card-name">Napisal: <?= $article->getName() ?></p>
+                        <p class="card-name">Napisal: <?= $article->getName() ?>, <?= $article->getMail()?> </p>
 
                         <a href="?c=blog&a=edit&id=<?= $article->getId() ?>" class="btn btn-primary btn-sm" >edit</a>
                         <a href="?c=blog&a=delete&id=<?= $article->getId() ?>" class="btn btn-danger btn-sm" >delete</a>

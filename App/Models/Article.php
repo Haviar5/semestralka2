@@ -10,18 +10,21 @@ class Article extends Model
     protected $title;
     protected $text;
     protected $meno;
+    protected $email;
 
     /**
      * Article constructor.
      * @param $title
      * @param $text
      * @param $meno
+     * @param $email
      */
-    public function __construct($title = "", $text = "", $meno = "uzivatel")
+    public function __construct($title = "", $text = "", $meno = "weweg", $email = "")
     {
         $this->title = $title;
         $this->text = $text;
         $this->meno = $meno;
+        $this->email = $email;
     }
 
     /**
@@ -33,7 +36,16 @@ class Article extends Model
     }
 
 
+    public function setMail($email)
+    {
+        return $this->email = $email;
+    }
 
+
+    public function getMail()
+    {
+        return $this->email;
+    }
 
     public function setName($meno)
     {
@@ -72,7 +84,7 @@ class Article extends Model
 
     static public function setDbColumns()
     {
-        return ['id','text','title', 'meno'];
+        return ['id','text','title', 'meno', 'email'];
     }
 
     static public function setTableName()

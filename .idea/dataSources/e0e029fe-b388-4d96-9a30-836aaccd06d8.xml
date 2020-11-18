@@ -1073,7 +1073,11 @@
       <DataType>varchar(255)|0s</DataType>
       <DefaultExpression>&apos;uzivatel&apos;</DefaultExpression>
     </column>
-    <key id="339" parent="334" name="PRIMARY">
+    <column id="339" parent="334" name="email">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <key id="340" parent="334" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

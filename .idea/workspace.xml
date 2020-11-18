@@ -10,12 +10,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7f3b523-edfd-4aa4-8d9d-be7155623f09" name="Default Changelist" comment="modal fnguje ale name insert nie">
+    <list default="true" id="d7f3b523-edfd-4aa4-8d9d-be7155623f09" name="Default Changelist" comment="male graf upravy, name insert nefunguje">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/e0e029fe-b388-4d96-9a30-836aaccd06d8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e0e029fe-b388-4d96-9a30-836aaccd06d8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/Article.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Views/Blog/edit.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/Blog/edit.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Views/Blog/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/Blog/index.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/Blog/insert.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +51,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../VAII-Semestralka-master" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -84,7 +87,7 @@
       <workItem from="1603238783295" duration="536000" />
       <workItem from="1603269468585" duration="9656000" />
       <workItem from="1605636703879" duration="23710000" />
-      <workItem from="1605693467987" duration="6553000" />
+      <workItem from="1605693467987" duration="13003000" />
     </task>
     <task id="LOCAL-00001" summary="najs">
       <created>1602687569047</created>
@@ -177,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605698936245</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="male graf upravy, name insert nefunguje">
+      <created>1605700812683</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1605700812683</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +211,8 @@
     <MESSAGE value="modal  add nefunguje, edit delete load = done" />
     <MESSAGE value="button v roote" />
     <MESSAGE value="modal fnguje ale name insert nie" />
-    <option name="LAST_COMMIT_MESSAGE" value="modal fnguje ale name insert nie" />
+    <MESSAGE value="male graf upravy, name insert nefunguje" />
+    <option name="LAST_COMMIT_MESSAGE" value="male graf upravy, name insert nefunguje" />
   </component>
   <component name="WindowStateProjectService">
     <state x="194" y="255" key="#SQL_Dialects" timestamp="1605698412702">
@@ -224,10 +235,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="500" y="168" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605655591459" />
-    <state x="550" y="155" key="FileChooserDialogImpl" timestamp="1605656647431">
+    <state x="550" y="155" key="FileChooserDialogImpl" timestamp="1605704584360">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="550" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605656647431" />
+    <state x="550" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605704584360" />
     <state x="644" y="311" width="471" height="202" key="Github.ShareDialog" timestamp="1605656520167">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -236,10 +247,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="605" y="337" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1605695784165" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1605698950429">
+    <state x="539" y="116" key="RollbackChangesDialog" timestamp="1605704013627">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605698950429" />
+    <state x="539" y="116" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605704013627" />
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1605700817012">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605700817011" />
     <state x="648" y="290" width="310" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1605700575936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -248,10 +263,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="566" y="234" width="404" height="349" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1536.824@0.0.1536.824" timestamp="1605696850550" />
-    <state x="358" y="115" width="791" height="562" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605700592976">
+    <state x="358" y="115" width="791" height="562" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605701048343">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="358" y="115" width="791" height="562" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1605700592976" />
+    <state x="358" y="115" width="791" height="562" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1605701048343" />
     <state x="587" y="327" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602687647971">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
